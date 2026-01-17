@@ -25,7 +25,7 @@ author:
   # Biographic information
   avatar           : "https://bitterwood.github.io/images/personal_picture.png"
   name             : "Songyan Hou(侯松延)"
-  pronouns         : # example: "she/her"
+  pronouns         : # example: "she/her"  
   # bio              : "Short biography for the left-hand sidebar"
   location         : "Beijing, China"
   employer         : "Peking University"
@@ -52,8 +52,8 @@ author:
   codepen          : # Username
   dribbble         : # Username
   github           : # "academicpages"
-  kaggle           : # Username
-  stackoverflow    : # User number or user number and name (i.e., use "1" or "1/jeff-atwood")  
+  kaggle           : # Username  
+  stackoverflow    : # User number or user number and name (i.e., use "1" or "1/jeff-atwood")    
 
   # Social media
   artstation       : # Username
@@ -87,7 +87,7 @@ publication_category:
   books:
     title: 'Books'
   manuscripts:
-    title: 'Journal Articles'  
+    title: 'Journal Articles'    
   conferences:
     title: 'Conference Papers'
 
@@ -221,7 +221,7 @@ kramdown:
 
 # These settings control the types of collections used by the template
 collections:
-  Projects:
+  projects:
     output: true
     permalink: /:collection/:path/
   teaching:
@@ -258,10 +258,10 @@ defaults:
     values:
       layout: single
       author_profile: true
-  # _Projects
+  # _projects
   - scope:
       path: ""
-      type: Projects
+      type: projects
     values:
       layout: single
       author_profile: true
