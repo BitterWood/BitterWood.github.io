@@ -30,10 +30,10 @@ This project implements a **Geometric Vector Perceptron (GVP)** framework design
 ## 2. Methodology and Architecture
 
 ### 2.1 Geometric Representation
-We transform the 3D protein structure into a KNN-graph ($k=30$). Data preprocessing includes a symmetry correction protocol where all antigen-antibody pairs are canonicalized based on alphabetical chain ordering (e.g., "AB" format) to ensure a unique representation. Each residue is a node with:
-*   **Scalar Features ($s \in \mathbb{R}^9$)**: Dihedral angles ($\cos, \sin$), pLDDT, and interface masks.
-*   **Vector Features ($v \in \mathbb{R}^{3 \times 3}$)**: Backbone orientations and local geometric vectors.
-*   **Edge Features**: Scalar RBF embeddings ($s \in \mathbb{R}^{33}$) and displacement vector features ($v \in \mathbb{R}^{1 \times 3}$).
+We transform the 3D protein structure into a KNN-graph ($$k=30$$). Data preprocessing includes a symmetry correction protocol where all antigen-antibody pairs are canonicalized based on alphabetical chain ordering (e.g., "AB" format) to ensure a unique representation. Each residue is a node with:
+*   **Scalar Features ($$s \in \mathbb{R}^9$$)**: Dihedral angles ($$\cos, \sin$$), pLDDT, and interface masks.
+*   **Vector Features ($$v \in \mathbb{R}^{3 \times 3}$$)**: Backbone orientations and local geometric vectors.
+*   **Edge Features**: Scalar RBF embeddings ($$s \in \mathbb{R}^{33}$$) and displacement vector features ($$v \in \mathbb{R}^{1 \times 3}$$).
 
 The dataset was partitioned using a 4-to-1 ratio at the **Complex ID level** (9,566 training, 2,302 validation files) to prevent information leakage and ensure generalization to unseen assemblies.
 
@@ -74,7 +74,7 @@ We evaluated the model using Spearman’s rank correlation against objective Doc
 ![Distribution of spearman correlation coefficients between predicted and true DockQ values](https://bitterwood.github.io/images/spearman_distribution.png)
 
 ### 3.3 Improving Selection Success Rate
-The GVP-discriminator bridges the performance gap in generative pipelines. In an ensemble of $N=8$ seeds, the model improved the **Top-1 Success Rate (DockQ $\ge$ 0.23)** from a baseline of ~35.0% (internal rankings) to approximately **45.0%**. This effectively recovers nearly half of the potential performance gain bounded by the theoretical Oracle.
+The GVP-discriminator bridges the performance gap in generative pipelines. In an ensemble of $$N=8$$ seeds, the model improved the **Top-1 Success Rate (DockQ $$\ge$$ 0.23)** from a baseline of ~35.0% (internal rankings) to approximately **45.0%**. This effectively recovers nearly half of the potential performance gain bounded by the theoretical Oracle.
 
 ![Success rate of Top 1 structure for different strategies](https://bitterwood.github.io/images/success_rate_by_seed.png)
 
@@ -84,7 +84,4 @@ The GVP-discriminator bridges the performance gap in generative pipelines. In an
 This work quantifies and addresses the critical "selection error" in stochastic folding engines. By successfully identifying "Acceptable" or "Medium" quality structures that are sampled but overlooked by internal metrics, the tool reduces the experimental validation costs inherent in antibody discovery.
 
 ### 4.2 Practical Application
-By leverage equivariant vector features, the model captures the relative orientation of $V_H$/$V_L$ chains and the directionality of CDR loops. This geometric deep learning framework ensures that downstream biological modeling is based on the most physically plausible protein-protein interfaces, enhancing the reliability of computational drug discovery.
-
-<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+By leverage equivariant vector features, the model captures the relative orientation of $$V_H$$/$$V_L$$ chains and the directionality of CDR loops. This geometric deep learning framework ensures that downstream biological modeling is based on the most physically plausible protein-protein interfaces, enhancing the reliability of computational drug discovery.
