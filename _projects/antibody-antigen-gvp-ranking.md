@@ -30,10 +30,10 @@ This study proposes a geometric deep learning framework utilizing **Geometric Ve
 ## 2. Methodology and Architecture
 
 ### 2.1 Geometric Representation
-Protein structures are transformed into a graph representation where residues serve as nodes and edges connect the $k$-nearest neighbors ($k=30$). We implemented a **Symmetry Correction** protocol where all antibody-antigen pairs are canonicalized based on alphabetical chain ordering (e.g., consistently saved in "AB" format) to deduplicate mirror-image relationships. Each residue is characterized by:
-*   **Scalar Features ($s \in \mathbb{R}^9$)**: Dihedral angles ($\cos, \sin$), per-residue confidence scores (pLDDT), and binary interface masks.
-*   **Vector Features ($v \in \mathbb{R}^{3 \times 3}$)**: Capturing local backbone geometry and orientation.
-*   **Edge Features**: Scalar RBF embeddings ($s \in \mathbb{R}^{33}$) and displacement vectors ($v \in \mathbb{R}^{1 \times 3}$).
+Protein structures are transformed into a graph representation where residues serve as nodes and edges connect the $$k$$-nearest neighbors ($$k=30$$). We implemented a **Symmetry Correction** protocol where all antibody-antigen pairs are canonicalized based on alphabetical chain ordering (e.g., consistently saved in "AB" format) to deduplicate mirror-image relationships. Each residue is characterized by:
+*   **Scalar Features ($$s \in \mathbb{R}^9$$)**: Dihedral angles ($$\cos, \sin$$), per-residue confidence scores (pLDDT), and binary interface masks.
+*   **Vector Features ($$v \in \mathbb{R}^{3 \times 3}$$)**: Capturing local backbone geometry and orientation.
+*   **Edge Features**: Scalar RBF embeddings ($$s \in \mathbb{R}^{33}$$) and displacement vectors ($$v \in \mathbb{R}^{1 \times 3}$$).
 
 The dataset, comprising 11,868 JSON files, was partitioned using a 4-to-1 ratio at the **Complex ID level** (9,566 training, 2,302 validation) to ensure the model generalizes to unseen assemblies without information leakage from identical complex variations.
 
@@ -74,7 +74,7 @@ Evaluation using Spearman’s rank correlation against ground-truth DockQ scores
 ![Distribution of spearman correlation coefficients between predicted and true DockQ values](https://bitterwood.github.io/images/spearman_distribution.png)
 
 ### 3.3 Improving Selection Success Rate
-In a re-ranking task of stochastic ensembles with $N=8$ seeds, the GVP-discriminator significantly improved the **Top-1 Success Rate (DockQ $\ge$ 0.23)**. While the baseline generator ranking provided a success rate of ~35.0%, our model improved this to approximately **45.0%**, effectively recovering nearly half of the potential performance gain bounded by the theoretical Oracle.
+In a re-ranking task of stochastic ensembles with $$N=8$$ seeds, the GVP-discriminator significantly improved the **Top-1 Success Rate ($$DockQ \ge 0.23$$)**. While the baseline generator ranking provided a success rate of ~35.0%, our model improved this to approximately **45.0%**, effectively recovering nearly half of the potential performance gain bounded by the theoretical Oracle.
 
 ![Success rate of Top 1 structure for different strategies](https://bitterwood.github.io/images/success_rate_by_seed.png)
 
@@ -84,4 +84,4 @@ In a re-ranking task of stochastic ensembles with $N=8$ seeds, the GVP-discrimin
 This work quantifies the "selection error" in modern folding engines. By successfully identifying "Acceptable" or "Medium" quality structures that are sampled but overlooked by internal scorers, the model mitigates a critical bottleneck in computational antibody design. The rigorous partitioning at the Complex ID level ensures that these performance gains are representative of true generalization to novel protein interfaces.
 
 ### 4.2 Practical Application
-By explicitly processing rotationally equivariant vector features, the model captures essential physical characteristics such as the relative orientation of $V_H$/$V_L$ chains and the directionality of CDR loops. This provides a robust tool for identifying near-native antibody-antigen complexes in generative pipelines, reducing the downstream experimental validation costs in therapeutic discovery.
+By explicitly processing rotationally equivariant vector features, the model captures essential physical characteristics such as the relative orientation of $$V_H/V_L$$ chains and the directionality of CDR loops. This provides a robust tool for identifying near-native antibody-antigen complexes in generative pipelines, reducing the downstream experimental validation costs in therapeutic discovery.
