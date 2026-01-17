@@ -15,6 +15,7 @@ tech_stack:
   - name: PyTorch Geometric (PyG)
   - name: GVP-GNN
   - name: AlphaFold3 Ecosystem
+share: false
 ---
 
 ## 1. Project Overview
