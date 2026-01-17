@@ -8,7 +8,7 @@
 
 # Basic Site Settings
 locale                   : "en-US"
-site_theme               : "default" # The available themes options are "default", "air", "sunrise", "mint", "dirt" and "contrast"
+site_theme               : "sunrise" # The available themes options are "default", "air", "sunrise", "mint", "dirt" and "contrast"
 title                    : "Songyan Hou"
 title_separator          : "-"
 name                     : &name "Your Name"
@@ -23,7 +23,7 @@ repository               : "BitterWood/BitterWood.github.io"
 #               Additional customization can be done by editing /_includes/author-profile.html
 author:
   # Biographic information
-  avatar           : "/images/500x300.png"
+  avatar           : "./images/personal_picture.png"
   name             : "Songyan Hou(侯松延)"
   pronouns         : # example: "she/her"  
   # bio              : "Short biography for the left-hand sidebar"
