@@ -16,6 +16,7 @@ tech_stack:
   - name: GVP-GNN
   - name: AlphaFold3 Ecosystem
 share: false
+mathjax: true
 ---
 
 ## 1. Project Overview
