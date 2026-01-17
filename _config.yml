@@ -23,12 +23,12 @@ repository               : "BitterWood/BitterWood.github.io"
 #               Additional customization can be done by editing /_includes/author-profile.html
 author:
   # Biographic information
-  avatar           : "./images/personal_picture.png"
+  avatar           : "/images/personal_picture.png"
   name             : "Songyan Hou(侯松延)"
   pronouns         : # example: "she/her"  
   # bio              : "Short biography for the left-hand sidebar"
   location         : "Beijing, China"
-  employer         : "Peking University Health Science Center"
+  employer         : "Peking University"
   uri              : # URL
   email            : "1556906251@qq.com" 
 
