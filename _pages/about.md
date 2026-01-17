@@ -11,12 +11,6 @@ I am a fifth-year undergraduate student in Basic Medicine Sciences at the [Pekin
 
 [Email](mailto:2110305301@stu.pku.edu.cn) / [Github](https://github.com/BitterWood) / [Wechat](../images/wechat.jpg) 
 
-About Me
-======
-I am a fifth-year undergraduate student in Basic Medicine Sciences at the [Peking University Health Science Center](https://www.bjmu.edu.cn/), [Peking University](https://www.pku.edu.cn/). I am fortunate to be advised by [Prof. Yang](https://ebiomed.pku.edu.cn/). My research interests include pan-cancer screening of functional teRNAs and AI-assisted description of RBP binding landscape.
-
-[Email](mailto:2110305301@stu.pku.edu.cn) / [Github](https://github.com/BitterWood) / [Wechat](../images/wechat.jpg) 
-
 Getting started
 ======
 1. Register a GitHub account if you don't have one and confirm your e-mail (required!)
