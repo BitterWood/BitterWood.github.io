@@ -1,6 +1,3 @@
-
-
-```markdown
 ---
 title: "Accurate Antibody-Antigen Interface Quality Assessment via Geometric Vector Perceptrons"
 collection: Projects
@@ -20,20 +17,22 @@ tech_stack:
   - name: AlphaFold3 Ecosystem
 ---
 
-## Project Overview
+## 1. Project Overview
 
-State-of-the-art generators like AlphaFold 3/Protenix often sample near-native conformations but suffer from a **"ranking gap"**: internal confidence metrics (pLDDT) fail to prioritize the best-predicted structures from an ensemble. 
+### 1.1 Problem Statement
+State-of-the-art generators like AlphaFold 3 often sample near-native conformations but suffer from a **"ranking gap"**: internal confidence metrics (pLDDT) fail to prioritize the best-predicted structures from an ensemble. 
 
+### 1.2 Proposed Solution
 This project implements a **Geometric Vector Perceptron (GVP)** framework to discriminate high-quality binding interfaces. By capturing rotationally invariant scalar and equivariant vector features, the model effectively re-ranks decoys to identify biologically accurate structures.
 
-## Methodology and Architecture
+## 2. Methodology and Architecture
 
-### 1. Geometric Representation
+### 2.1 Geometric Representation
 We transform the 3D protein structure into a KNN-graph ($k=30$). Each residue is a node with:
 *   **Scalar Features**: Dihedral angles ($\cos, \sin$), pLDDT, and interface masks.
 *   **Vector Features**: Backbone orientations and side-chain vectors.
 
-### 2. GVP-GNN Architecture
+### 2.2 GVP-GNN Architecture
 The model uses a Siamese architecture to learn from structural pairs. 
 
 ```python
@@ -53,24 +52,27 @@ class ComplexQualityModel(nn.Module):
         return self.regression_head(graph_feats)
 ```
 
-## Performance and Evaluation
+## 3. Performance and Evaluation
 
-### Training Convergence
-The model was trained using a pairwise ranking objective.
+### 3.1 Training Convergence
+The model was trained using a pairwise ranking objective ($s_1 - s_2$ optimized via BCE Loss).
 
 ![Learning Convergence](/images/Projects/antigen_antibody_training_curves.png)
 
-### Correlation with Ground Truth
-We evaluated the model using Spearman’s rank correlation against objective DockQ scores.
+### 3.2 Correlation with Ground Truth
+We evaluated the model using Spearman’s rank correlation against objective DockQ scores to measure ranking consistency.
 
 ![Spearman Correlation](/images/Projects/antigen_antibody_correlation.png)
 
-### Improving Selection Success Rate
-The primary value of the GVP-discriminator is bridging the performance gap in generative pipelines.
+### 3.3 Improving Selection Success Rate
+The GVP-discriminator bridges the performance gap in generative pipelines by selecting the highest-quality decoys.
 
 ![Success Rate Growth](/images/Projects/antigen_antibody_success_rate.png)
 
-## Technical Impact
+## 4. Technical Impact
 
+### 4.1 Research Contribution
 By accurately identifying "Acceptable" quality structures from stochastic outputs, this tool reduces the experimental costs of antibody discovery and therapeutic design.
-```
+
+### 4.2 Practical Application
+This geometric deep learning framework ensures that downstream biological modeling is based on the most physically plausible protein-protein interfaces, improving the reliability of computational drug discovery.
