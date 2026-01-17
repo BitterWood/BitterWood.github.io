@@ -85,3 +85,6 @@ This work quantifies and addresses the critical "selection error" in stochastic 
 
 ### 4.2 Practical Application
 By leverage equivariant vector features, the model captures the relative orientation of $V_H$/$V_L$ chains and the directionality of CDR loops. This geometric deep learning framework ensures that downstream biological modeling is based on the most physically plausible protein-protein interfaces, enhancing the reliability of computational drug discovery.
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
