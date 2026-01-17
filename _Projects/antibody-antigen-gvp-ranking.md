@@ -64,17 +64,17 @@ class ComplexQualityModel(nn.Module):
 ### 3.1 Training Convergence
 The model was optimized using `BCEWithLogitsLoss` against ground-truth labels derived from DockQ scores. Trained on an NVIDIA RTX 4090D for 100 epochs, the validation pairwise ranking accuracy reached a stable plateau of **64.0%**, demonstrating reliable generalization without overfitting.
 
-![Loss and accuracy curves of training and validation sets](/images/Projects/antigen_antibody_training_curves.png)
+![Loss and accuracy curves of training and validation sets](https://bitterwood.github.io/images/learning_curves.png)
 
 ### 3.2 Correlation with Ground Truth
 We evaluated the model using Spearman’s rank correlation against objective DockQ scores. The model achieved a **median correlation of 0.405** and a **mean correlation of 0.340** per interface, confirming a strong monotonic relationship between the predicted quality scores and physical structural accuracy.
 
-![Distribution of spearman correlation coefficients between predicted and true DockQ values](/images/Projects/antigen_antibody_correlation.png)
+![Distribution of spearman correlation coefficients between predicted and true DockQ values](https://bitterwood.github.io/images/spearman_distribution.png)
 
 ### 3.3 Improving Selection Success Rate
 The GVP-discriminator bridges the performance gap in generative pipelines. In an ensemble of $N=8$ seeds, the model improved the **Top-1 Success Rate (DockQ $\ge$ 0.23)** from a baseline of ~35.0% (internal rankings) to approximately **45.0%**. This effectively recovers nearly half of the potential performance gain bounded by the theoretical Oracle.
 
-![Success rate of Top 1 structure for different strategies](/images/Projects/antigen_antibody_success_rate.png)
+![Success rate of Top 1 structure for different strategies](https://bitterwood.github.io/images/success_rate_by_seed.png)
 
 ## 4. Technical Impact
 
